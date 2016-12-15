@@ -292,10 +292,7 @@ var Zone$1 = (function (global) {
         ZoneDelegate.prototype._updateTaskCount = function (type, count) {
             var counts = this._taskCounts;
             var prev = counts[type];
-            var next = counts[type] = prev + count;
-            if (next < 0) {
-                throw new Error('More tasks executed then were scheduled.');
-            }
+            var next = counts[type] = prev + count;            
             if (prev == 0 || next == 0) {
                 var isEmpty = {
                     microTask: counts.microTask > 0,
